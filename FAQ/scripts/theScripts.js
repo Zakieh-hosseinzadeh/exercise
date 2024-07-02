@@ -8,20 +8,24 @@ $('.sec-acc-title').click(function () {
     $(this).next().slideToggle('fast').siblings('.sec-acc-content').slideUp('fast')
 })
 
+$(document).ready(function () {
+    $('.myParagraph').hide();
+    $('.myParagraph[id="p3"]').show();
 
+})
 $('.acc-title').click(function () {
     let index = $(this).data('answer');
     const answer = $(this).data()
     console.log(answer)
+
     $('.acc-title').removeClass('active');
     if ($(this).is(':visible')) {
         $(this).toggleClass('active');
         $('.myParagraph').hide();
-
         $('.myParagraph[id="' + index + '"]').show();
     }
+
     $(this).next().slideToggle('fast').siblings('.acc-content').slideUp('fast');
-    console.log(index)
 })
 
 let accordions = document.getElementsByClassName("acc-title");
@@ -40,9 +44,7 @@ function autoOpenAccordions() {
             setTimeout(function () {
                 accordions[index].classList.remove("active");
                 accContent.style.display = "none";
-                $(this).next().slideToggle('fast').siblings('.acc-content').slideUp('fast')
-
-            }, 2000);
+            }, 3000);
 
             index++;
             if (index >= accordions.length) index = 0;
