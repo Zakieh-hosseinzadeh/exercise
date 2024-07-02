@@ -207,9 +207,6 @@ ul {
     color: #fff;
 }
 
-.acc-content:nth-child(6), .sec-acc-content:nth-child(2) {
-    display: block;
-}
 
 .sec-acc-content a:first-child,
 .sec-acc-content a:nth-child(2) {
