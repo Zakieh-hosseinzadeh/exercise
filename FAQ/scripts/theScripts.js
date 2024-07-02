@@ -12,8 +12,8 @@ $(document).ready(function () {
 
     $(document).ready(function () {
         $('.myParagraph').hide();
-        $('.myParagraph[id="p3"]').show();
-
+        $('.myParagraph[id="p1"]').show();
+        $('.acc-title:first-child').addClass('active');
     })
     $('.acc-title').click(function () {
         let index = $(this).data('answer');
@@ -27,6 +27,7 @@ $(document).ready(function () {
             $('.myParagraph[id="' + index + '"]').show();
         }
         userClick=true;
+        console.log(userClick)
         $(this).next().slideToggle('fast').siblings('.acc-content').slideUp('fast');
     })
 
@@ -46,12 +47,12 @@ $(document).ready(function () {
                 setTimeout(function () {
                     accordions[index].classList.remove("active");
                     accContent.style.display = "none";
-                }, 1000);
+                }, 5000);
 
                 index++;
                 if (index >= accordions.length) index = 0;
             }
-        }, 3000);
+        }, 5000);
     }
 
     autoOpenAccordions();

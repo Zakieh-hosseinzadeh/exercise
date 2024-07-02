@@ -207,7 +207,7 @@ ul {
     color: #fff;
 }
 
- .sec-acc-content:nth-child(2) {
+ .sec-acc-content:nth-child(2),.acc-content:nth-child(2) {
     display: block;
 }
 
