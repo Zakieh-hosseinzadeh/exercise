@@ -8,45 +8,46 @@ $('.sec-acc-title').click(function () {
     $(this).next().slideToggle('fast').siblings('.sec-acc-content').slideUp('fast')
 })
 
+
 $('.acc-title').click(function () {
-    let index=0;
-    
+    let index = $(this).data('answer');
     const answer = $(this).data()
     console.log(answer)
     $('.acc-title').removeClass('active');
     if ($(this).is(':visible')) {
         $(this).toggleClass('active');
         $('.myParagraph').hide();
-        $('.myParagraph[id="p2"]').show();
+
+        $('.myParagraph[id="' + index + '"]').show();
     }
     $(this).next().slideToggle('fast').siblings('.acc-content').slideUp('fast');
-
+    console.log(index)
 })
 
-// let accordions = document.getElementsByClassName("acc-title");
-// let autoOpen;
-// let autoOpenEnabled = true;
-//
-// function autoOpenAccordions() {
-//     let index = 0;
-//     autoOpen = setInterval(function () {
-//         if (autoOpenEnabled) {
-//             $('.acc-title').removeClass('active');
-//             accordions[index].classList.add("active");
-//             let accContent = accordions[index].nextElementSibling;
-//             accContent.style.display = "block";
-//
-//             setTimeout(function () {
-//                 accordions[index].classList.remove("active");
-//                 accContent.style.display = "none";
-//                 $(this).next().slideToggle('fast').siblings('.acc-content').slideUp('fast')
-//
-//             }, 2000);
-//
-//             index++;
-//             if (index >= accordions.length) index = 0;
-//         }
-//     }, 5000);
-// }
+let accordions = document.getElementsByClassName("acc-title");
+let autoOpen;
+let autoOpenEnabled = true;
 
-// autoOpenAccordions();
+function autoOpenAccordions() {
+    let index = 0;
+    autoOpen = setInterval(function () {
+        if (autoOpenEnabled) {
+            $('.acc-title').removeClass('active');
+            accordions[index].classList.add("active");
+            let accContent = accordions[index].nextElementSibling;
+            accContent.style.display = "block";
+
+            setTimeout(function () {
+                accordions[index].classList.remove("active");
+                accContent.style.display = "none";
+                $(this).next().slideToggle('fast').siblings('.acc-content').slideUp('fast')
+
+            }, 2000);
+
+            index++;
+            if (index >= accordions.length) index = 0;
+        }
+    }, 5000);
+}
+
+autoOpenAccordions();
