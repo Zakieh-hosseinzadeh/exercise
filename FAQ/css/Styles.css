@@ -1,0 +1,217 @@
+@font-face {
+    font-family: "IRANYekan";
+    font-weight: normal;
+    src: url("fonts/iranyekan/svg/iranyekanwebregular.svg");
+    src: url("fonts/iranyekan/ttf/iranyekanwebregular.ttf");
+    src: url("fonts/iranyekan/woff/iranyekanwebregular.woff");
+    src: url("fonts/iranyekan/woff2/iranyekanwebregular.woff2");
+}
+
+@font-face {
+    font-family: "IRANYekan";
+    font-weight: bold;
+    src: url("fonts/iranyekan/svg/iranyekanwebbold.svg");
+    src: url("fonts/iranyekan/ttf/iranyekanwebbold.ttf");
+    src: url("fonts/iranyekan/woff/iranyekanwebbold.woff");
+    src: url("fonts/iranyekan/woff2/iranyekanwebbold.woff2");
+}
+
+@font-face {
+    font-family: "Pinar";
+    font-weight: normal;
+    src: url("fonts/pinar/Pinar-Regular.ttf") format('truetype'),
+    url("fonts/pinar/Pinar-Regular.woff2") format('woff');
+}
+
+@font-face {
+    font-family: "Pinar";
+    font-weight: bold;
+    src: url("fonts/pinar/Pinar-Bold.ttf") format('truetype'),
+    url("fonts/pinar/Pinar-Bold.woff2") format('woff');
+}
+
+:root {
+    --primaryColor:#2c3e50;
+    --secondaryColor:#1abc9c;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: IRANYekan, "B Yekan", sans-serif;
+}
+
+
+body {
+    direction: rtl;
+}
+
+html, body {
+    scroll-behavior: smooth;
+}
+
+a:link,
+a:visited {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+
+/*-----------------------------------Page FAQ------------------------------*/
+
+#faq-wrapper {
+    display: flex;
+    padding-right: 15px;
+}
+
+#line {
+    width: 2px;
+    height: 87%;
+    background-color: lightgray;
+    position: relative;
+    top: 17px;
+}
+
+/*--First Child--*/
+
+.faq {
+    flex: 1;
+}
+
+.acc-title {
+    padding: 15px;
+    cursor: pointer;
+    color: gray;
+}
+
+.acc-title:before {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-color: lightgray;
+    position: relative;
+    right: -24px;
+    transform: rotate(45deg);
+    border-radius: 1px;
+}
+
+.acc-before:before {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-color: lightgray;
+    border-radius: 50%;
+    position: relative;
+    right: -24px;
+}
+.acc-title.active{
+    display: block;
+    color: var(--secondaryColor);
+}
+.acc-title.active::before{
+    content: "";
+    /*display: block;*/
+    background-color: var(--secondaryColor);
+}
+
+
+.acc-content {
+    padding: 5px 15px;
+    line-height: 2;
+    text-align: justify;
+    color: gray;
+}
+
+.icon-etc {
+    float: left;
+}
+.icon-etc i,
+.icon-etc a {
+    color: var(--secondaryColor);
+    vertical-align: middle;
+}
+
+.icon-box i {
+    color: var(--secondaryColor);
+    font-size: 25px;
+}
+
+/*--Second Child--*/
+.faq:nth-child(3) {
+    padding: 20px 30px;
+}
+
+.faq:nth-child(3) p {
+    line-height: 1.6;
+    color: gray;
+    text-align: justify;
+    margin: 10px;
+}
+
+#btn-wrapper {
+    display: grid;
+    padding: 20px;
+    grid-template-columns:auto auto auto;
+    gap: 10px 15px;
+}
+
+.btn-site {
+    padding: 10px 5px;
+    background-color: #eeeeee;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/*--Third Child--*/
+.faq:last-child {
+    flex-grow: 0.5;
+    background-color: var(--primaryColor);
+}
+
+#second-accordion {
+    padding: 15px;
+    color: #fff;
+}
+
+.sec-acc-title {
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.sec-acc-title > .fa-solid {
+    float: right;
+    color: var(--secondaryColor);
+}
+
+.acc-content, .sec-acc-content {
+    display: none;
+}
+
+.sec-acc-content a {
+    padding: 16px 10px;
+    text-align: center;
+    display: block;
+    color: #fff;
+}
+
+.acc-content:nth-child(6), .sec-acc-content:nth-child(2) {
+    display: block;
+}
+
+.sec-acc-content a:first-child,
+.sec-acc-content a:nth-child(2) {
+    border-bottom: 1px solid #fff;
+}
