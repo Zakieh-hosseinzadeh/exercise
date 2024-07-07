@@ -8,7 +8,7 @@ $('.sec-acc-title').click(function () {
     $(this).next().slideToggle('fast').siblings('.sec-acc-content').slideUp('fast')
 })
 $(document).ready(function () {
-    let userClick=false;
+    let userClick = false;
 
     $(document).ready(function () {
         $('.myParagraph').hide();
@@ -16,6 +16,7 @@ $(document).ready(function () {
         $('.acc-title:first-child').addClass('active');
     })
     $('.acc-title').click(function () {
+
         let index = $(this).data('answer');
         const answer = $(this).data()
         console.log(answer)
@@ -26,8 +27,8 @@ $(document).ready(function () {
             $('.myParagraph').hide();
             $('.myParagraph[id="' + index + '"]').show();
         }
-        userClick=true;
-        console.log(userClick)
+        userClick = true;
+        // console.log(userClick)
         $(this).next().slideToggle('fast').siblings('.acc-content').slideUp('fast');
     })
 
@@ -38,16 +39,26 @@ $(document).ready(function () {
     function autoOpenAccordions() {
         let index = 0;
         autoOpen = setInterval(function () {
-            if (autoOpenEnabled&&!userClick) {
+            if (autoOpenEnabled && !userClick) {
                 $('.acc-title').removeClass('active');
+                $('.acc-content').slideUp('fast')
+                let cuurentAcoordion = accordions[index]
                 accordions[index].classList.add("active");
-                let accContent = accordions[index].nextElementSibling;
-                accContent.style.display = "block";
+                console.log(accordions[index])
+                cuurentAcoordion.next().slideDown('fast')
 
-                setTimeout(function () {
-                    accordions[index].classList.remove("active");
-                    accContent.style.display = "none";
-                }, 5000);
+                // let accContent = accordions[index].nextElementSibling;
+                // accContent.style.display = "block";
+
+                // setTimeout(function () {
+                //     accordions[index].classList.remove("active");
+                //     accContent.style.display = "none";
+                // }, 5000);
+
+                let contentid=cuurentAcoordion.data('answer');
+                console.log(contentid)
+                $('.myParagraph').hide();
+                $('.myParagraph[id="'+contentid+'"]').show()
 
                 index++;
                 if (index >= accordions.length) index = 0;
