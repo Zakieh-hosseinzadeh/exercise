@@ -42,10 +42,12 @@ $(document).ready(function () {
             if (autoOpenEnabled && !userClick) {
                 $('.acc-title').removeClass('active');
                 $('.acc-content').slideUp('fast')
-                let cuurentAcoordion = accordions[index]
+
                 accordions[index].classList.add("active");
                 console.log(accordions[index])
-                cuurentAcoordion.next().slideDown('fast')
+                $(accordions[index]).next().slideDown('fast')
+
+
 
                 // let accContent = accordions[index].nextElementSibling;
                 // accContent.style.display = "block";
@@ -55,7 +57,7 @@ $(document).ready(function () {
                 //     accContent.style.display = "none";
                 // }, 5000);
 
-                let contentid=cuurentAcoordion.data('answer');
+                let contentid=$(accordions[index]).data('answer');
                 console.log(contentid)
                 $('.myParagraph').hide();
                 $('.myParagraph[id="'+contentid+'"]').show()
